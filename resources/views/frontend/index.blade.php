@@ -13,15 +13,15 @@
 
 <body>
     @include("frontend.layout.inc_topmenu")
-    <section id="homepage" class="wrapperPages">
+    <section id="homepage" class="wrapperPages" style="min-height: 1200px;">
         <div class=" bannerhomepage owl-carousel owl-theme">
             @foreach($slide as $s)
                 <div class="item">
                     <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
-                        <img src="{{asset($s->img)}}" alt="">
+                        <img src="{{asset($s->img)}}" alt="" width="1920" height="600" loading="lazy" style="width: 100%; height: auto;">
                     </div>
                     <div class="d-block d-sm-block d-md-block d-lg-none d-xl-none">
-                        <img src="{{asset($s->img_mobile)}}" alt="">
+                        <img src="{{asset($s->img_mobile)}}" alt="" width="600" height="400" loading="lazy" style="width: 100%; height: auto;">
                     </div>
                     <div class="captionbanner">
                         {!! $s->detail !!}
@@ -30,10 +30,10 @@
             @endforeach
         </div>
         </div>
-        <div class="container">
+        <div class="container" style="min-height: 400px;">
             <div class="row">
                 <div class="col">
-                    <div class="searchtripfull">
+                    <div class="searchtripfull" style="min-height: 120px;">
                         <h2>ไปเที่ยวที่ไหนดี?</h2>
                         <form action="{{url('search-tour')}}" method="POST" enctype="multipart/form-data"  id="searchForm">
                             @csrf
@@ -117,7 +117,7 @@
             </div>
         </div>
        
-        <div class="container">
+        <div class="container" style="min-height: 400px;">
             <section class="promotionhome">
                 <div class="row  mb-4">
                     <div class="col">
@@ -143,7 +143,7 @@
                     </div>
                 </div>
             </section>
-            <section class="hotcountry">
+            <section class="hotcountry" style="min-height: 400px;">
                 <div class="row mt-3">
                     <div class="col">
                         <div class="titletopic text-center">
@@ -817,7 +817,7 @@
                     <center><a href="{{url('search-tour')}}" class="btn btn-submit">ดูทัวร์ทั้งหมด</a></center>
                 </div>
             </div>
-            <section class="reviewhome">
+            <section class="reviewhome" style="min-height: 400px;">
                 <div class="row mt-5 mb-4">
                     <div class="col">
                         <div class="titletopic text-center">
@@ -834,7 +834,7 @@
                             <div class="clindex">
                                 <div class="hoverstyle">
                                     <figure>
-                                        <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[0]->img)}} " class="img-fluid" alt=""></a>
+                                        <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[0]->img)}} " class="img-fluid" alt="" width="400" height="300" loading="lazy"></a>
                                     </figure>
                                 </div>
                             </div>
@@ -870,7 +870,7 @@
                                 <div class="col-lg-6">
                                     <div class="hoverstyle">
                                         <figure>
-                                            <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[1]->img)}}" class="img-fluid" alt=""></a>
+                                            <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[1]->img)}}" class="img-fluid" alt="" width="400" height="300" loading="lazy"></a>
                                         </figure>
                                     </div>
                                 </div>
@@ -924,7 +924,7 @@
                                         <div class="groupshowname">
                                             <div class="clleft">
                                                 <div class="clientpic">
-                                                    <img src="{{asset($review[2]->profile)}}" alt="">
+                                                    <img src="{{asset($review[2]->profile)}}" alt="" width="50" height="50" loading="lazy">
                                                 </div>
                                             </div>
                                             <div class="clientname">
@@ -939,8 +939,7 @@
                                     <div class="clindex">
                                         <div class="hoverstyle">
                                             <figure>
-                                                <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[2]->img)}}" class="img-fluid"
-                                                        alt=""></a>
+                                                <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[2]->img)}}" class="img-fluid" alt="" width="400" height="300" loading="lazy"></a>
                                             </figure>
                                         </div>
                                     </div>
@@ -961,7 +960,7 @@
                                         <div class="groupshowname">
                                             <div class="clleft">
                                                 <div class="clientpic">
-                                                    <img src="{{asset($review[3]->profile)}}" alt="">
+                                                    <img src="{{asset($review[3]->profile)}}" alt="" width="50" height="50" loading="lazy">
                                                 </div>
                                             </div>
                                             <div class="clientname">
@@ -977,7 +976,7 @@
                             <div class="clindex">
                                 <div class="hoverstyle">
                                     <figure>
-                                        <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[3]->img)}}" class="img-fluid" alt=""></a>
+                                        <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[3]->img)}}" class="img-fluid" alt="" width="400" height="300" loading="lazy"></a>
                                     </figure>
                                 </div>
                             </div>
@@ -1005,7 +1004,7 @@
                                         <div class="groupshowname">
                                             <div class="clleft">
                                                 <div class="clientpic">
-                                                    <img src="{{asset($review[4]->profile)}}" alt="">
+                                                    <img src="{{asset($review[4]->profile)}}" alt="" width="50" height="50" loading="lazy">
                                                 </div>
                                             </div>
                                             <div class="clientname">
@@ -1019,8 +1018,7 @@
                                     <div class="clindex">
                                         <div class="hoverstyle">
                                             <figure>
-                                                <a href="0"><img src="{{asset($review[4]->img)}}" class="img-fluid"
-                                                        alt=""></a>
+                                                <a href="0"><img src="{{asset($review[4]->img)}}" class="img-fluid" alt="" width="400" height="300" loading="lazy"></a>
                                             </figure>
                                         </div>
                                     </div>
@@ -1037,8 +1035,7 @@
                                     <div class="clindex">
                                         <div class="hoverstyle">
                                             <figure>
-                                                <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[5]->img)}}" class="img-fluid"
-                                                        alt=""></a>
+                                                <a href="{{url('clients-review/0/0')}}"><img src="{{asset($review[5]->img)}}" class="img-fluid" alt="" width="400" height="300" loading="lazy"></a>
                                             </figure>
                                         </div>
                                     </div>
@@ -1059,7 +1056,7 @@
                                         <div class="groupshowname">
                                             <div class="clleft">
                                                 <div class="clientpic">
-                                                    <img src="{{asset($review[5]->profile)}}" alt="">
+                                                    <img src="{{asset($review[5]->profile)}}" alt="" width="50" height="50" loading="lazy">
                                                 </div>
                                             </div>
                                             <div class="clientname">
@@ -1084,7 +1081,7 @@
                             <div class="clindex">
                                 <div class="hoverstyle">
                                     <figure>
-                                        <a href="{{url('clients-review/0/0')}}"><img src="{{asset($re->img)}}" class="img-fluid" alt=""></a>
+                                        <a href="{{url('clients-review/0/0')}}"><img src="{{asset($re->img)}}" class="img-fluid" alt="" width="300" height="200" loading="lazy"></a>
                                     </figure>
                                 </div>
                             </div>
@@ -1103,7 +1100,7 @@
                                 <div class="groupshowname">
                                     <div class="clleft">
                                         <div class="clientpic">
-                                            <img src="{{asset($re->profile)}}" alt="">
+                                            <img src="{{asset($re->profile)}}" alt="" width="50" height="50" loading="lazy">
                                         </div>
                                     </div>
                                     <div class="clientname">
@@ -1124,7 +1121,7 @@
                 </div>
 
             </section>
-            <section class="logoclients">
+            <section class="logoclients" style="min-height: 200px;">
                 <div class="row mt-5 mb-4">
                     <div class="col">
                         <div class="titletopic text-center">
@@ -1139,7 +1136,7 @@
                             <div class="item">
                                 <div class="clientbordd hoverstyle">
                                     <figure>
-                                        <a href="{{url('clients-detail/'.$cus->id)}}"><img src="{{asset($cus->logo)}}" class="img-fluid" alt=""></a>
+                                        <a href="{{url('clients-detail/'.$cus->id)}}"><img src="{{asset($cus->logo)}}" class="img-fluid" alt="" width="200" height="100" loading="lazy"></a>
                                     </figure>
                                 </div>
                             </div>
@@ -1149,8 +1146,8 @@
                 </div>
             </section>
         </div>
-        <section class="whyus mt-5 " style=" background-image: url({{$footer->img}});">
-            <div class="container">
+        <section class="whyus mt-5 " style=" background-image: url({{$footer->img}}); min-height: 300px;">
+            <div class="container" style="min-height: 400px;">
                 <div class="row">
                     <div class="col-lg-6 offset-lg-6">
                         <div class="whycontent">
@@ -1159,7 +1156,7 @@
                                 @foreach ($footer_list as $f)
                                 <div class="col-6 col-lg-6 mt-3 mb-3">
                                     <div class="ic">
-                                        <img src="{{asset($f->img)}}" alt="">
+                                        <img src="{{asset($f->img)}}" alt="" width="60" height="60" loading="lazy">
                                     </div>
                                     <h4>{{$f->title}}</h4>
                                     <p>{{$f->detail}}</p>
