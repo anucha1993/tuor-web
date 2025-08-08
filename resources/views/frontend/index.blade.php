@@ -1169,7 +1169,7 @@
             </div>
         </section>
     </section>
-    @include("frontend.layout.inc_footer")
+    {{-- @include("frontend.layout.inc_footer") --}}
     
     <?php 
         echo '<script>';
