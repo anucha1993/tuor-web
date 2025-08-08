@@ -7,6 +7,12 @@
     <title>Next Trip Holiday - จองทัวร์ออนไลน์ ทัวร์ในประเทศ ต่างประเทศ</title>
     <meta name="description" content="จองทัวร์ออนไลน์ ราคาดี บริการดี ทัวร์ในประเทศและต่างประเทศ ญี่ปุ่น เกาหลี ยุโรป อเมริกา">
     
+    <!-- Preconnect for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
     <!-- Preload Critical Resources -->
     <link rel="preload" href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" as="style">
     <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" as="style">
@@ -21,12 +27,14 @@
         /* Critical Above-the-fold CSS */
         * {
             font-family: 'Kanit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            box-sizing: border-box;
         }
         
         body {
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            font-display: swap;
         }
         
         .hero-gradient {
@@ -36,12 +44,14 @@
             overflow: hidden;
             display: flex;
             align-items: center;
+            will-change: transform;
         }
         
         .hero-content {
             position: relative;
             z-index: 2;
             width: 100%;
+            transform: translateZ(0);
         }
         
         .hero-text {
@@ -51,12 +61,14 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
             margin-bottom: 20px;
             line-height: 1.2;
+            font-display: swap;
         }
         
         .hero-subtitle {
             font-size: clamp(1rem, 2.5vw, 1.3rem);
             color: rgba(255,255,255,0.9);
             margin-bottom: 30px;
+            font-display: swap;
         }
         
         .container {
@@ -96,12 +108,29 @@
             color: white;
             text-decoration: none;
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: transform 0.2s ease-out;
+            will-change: transform;
+            font-display: swap;
         }
         
         .btn-primary-custom:hover {
             transform: translateY(-2px);
             color: white;
+        }
+        
+        /* Optimize animations for better performance */
+        .shape {
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .shape,
+            .btn-primary-custom,
+            .tour-card {
+                animation: none;
+                transition: none;
+            }
         }
     </style>
     
@@ -375,7 +404,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
-                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='400' fill='url(%23bg)' opacity='0.1'/%3E%3Ctext x='250' y='200' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3ETravel Illustration%3C/text%3E%3C/svg%3E" alt="Travel Hero" class="img-fluid" style="max-height: 400px; border-radius: 20px;">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='400' fill='url(%23bg)' opacity='0.1'/%3E%3Ctext x='250' y='200' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3ETravel Illustration%3C/text%3E%3C/svg%3E" 
+                         alt="Travel Hero" 
+                         class="img-fluid" 
+                         style="max-height: 400px; border-radius: 20px;"
+                         width="500" 
+                         height="400"
+                         loading="eager">
                 </div>
             </div>
         </div>
@@ -448,7 +483,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card tour-card">
                         <div class="position-relative overflow-hidden">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='japan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b'/%3E%3Cstop offset='100%25' style='stop-color:%23ee5a24'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23japan)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇯🇵 ญี่ปุ่น%3C/text%3E%3C/svg%3E" class="card-img-top tour-image" alt="ทัวร์ญี่ปุ่น">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='japan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b'/%3E%3Cstop offset='100%25' style='stop-color:%23ee5a24'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23japan)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇯🇵 ญี่ปุ่น%3C/text%3E%3C/svg%3E" 
+                                 class="card-img-top tour-image" 
+                                 alt="ทัวร์ญี่ปุ่น"
+                                 width="400" 
+                                 height="250"
+                                 loading="lazy">
                             <div class="price-badge">฿35,900</div>
                         </div>
                         <div class="card-body">
@@ -477,7 +517,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card tour-card">
                         <div class="position-relative overflow-hidden">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='korea' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2374b9ff'/%3E%3Cstop offset='100%25' style='stop-color:%230984e3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23korea)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇰🇷 เกาหลี%3C/text%3E%3C/svg%3E" class="card-img-top tour-image" alt="ทัวร์เกาหลี">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='korea' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2374b9ff'/%3E%3Cstop offset='100%25' style='stop-color:%230984e3'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23korea)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇰🇷 เกาหลี%3C/text%3E%3C/svg%3E" 
+                                 class="card-img-top tour-image" 
+                                 alt="ทัวร์เกาหลี"
+                                 width="400" 
+                                 height="250"
+                                 loading="lazy">
                             <div class="price-badge">฿28,900</div>
                         </div>
                         <div class="card-body">
@@ -506,7 +551,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card tour-card">
                         <div class="position-relative overflow-hidden">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='europe' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300b894'/%3E%3Cstop offset='100%25' style='stop-color:%2300a085'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23europe)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇪🇺 ยุโรป%3C/text%3E%3C/svg%3E" class="card-img-top tour-image" alt="ทัวร์ยุโรป">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='europe' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%2300b894'/%3E%3Cstop offset='100%25' style='stop-color:%2300a085'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23europe)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇪🇺 ยุโรป%3C/text%3E%3C/svg%3E" 
+                                 class="card-img-top tour-image" 
+                                 alt="ทัวร์ยุโรป"
+                                 width="400" 
+                                 height="250"
+                                 loading="lazy">
                             <div class="price-badge">฿89,900</div>
                         </div>
                         <div class="card-body">
@@ -535,7 +585,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card tour-card">
                         <div class="position-relative overflow-hidden">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='singapore' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a29bfe'/%3E%3Cstop offset='100%25' style='stop-color:%236c5ce7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23singapore)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇸🇬 สิงคโปร์%3C/text%3E%3C/svg%3E" class="card-img-top tour-image" alt="ทัวร์สิงคโปร์">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='singapore' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23a29bfe'/%3E%3Cstop offset='100%25' style='stop-color:%236c5ce7'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23singapore)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇸🇬 สิงคโปร์%3C/text%3E%3C/svg%3E" 
+                                 class="card-img-top tour-image" 
+                                 alt="ทัวร์สิงคโปร์"
+                                 width="400" 
+                                 height="250"
+                                 loading="lazy">
                             <div class="price-badge">฿18,900</div>
                         </div>
                         <div class="card-body">
@@ -564,7 +619,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="card tour-card">
                         <div class="position-relative overflow-hidden">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='thailand' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23fdcb6e'/%3E%3Cstop offset='100%25' style='stop-color:%23e17055'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23thailand)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇹🇭 เชียงใหม่%3C/text%3E%3C/svg%3E" class="card-img-top tour-image" alt="ทัวร์เชียงใหม่">
+                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='thailand' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23fdcb6e'/%3E%3Cstop offset='100%25' style='stop-color:%23e17055'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23thailand)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇹🇭 เชียงใหม่%3C/text%3E%3C/svg%3E" 
+                                 class="card-img-top tour-image" 
+                                 alt="ทัวร์เชียงใหม่"
+                                 width="400" 
+                                 height="250"
+                                 loading="lazy">
                             <div class="price-badge">฿8,900</div>
                         </div>
                         <div class="card-body">
