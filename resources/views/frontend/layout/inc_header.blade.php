@@ -47,7 +47,7 @@
     <script src="{{asset('frontend/js/jquery.flipster.min.js')}}"></script>
     
     <!-- <script src="https://www.google.com/recaptcha/api.js" async defer></script> -->
-    <script src="//www.google.com/recaptcha/api.js?render=6LdQYyIqAAAAAB3FGzKTWhkYEHyPkR0oPovosbNs"></script>
+    {{-- <script src="//www.google.com/recaptcha/api.js?render=6LdQYyIqAAAAAB3FGzKTWhkYEHyPkR0oPovosbNs"></script> --}}
     <!-- Sweet Alerts js -->
     <script src="{{ asset('frontend/dist/sweetalert2/sweetalert2.min.js') }}"></script>
     <!-- Toastr Alert-->
@@ -79,15 +79,6 @@
         });
 
  </script>
- <!-- Google tag (gtag.js) -->
-{{-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-YBTSPHPCDH"></script> --}}
-{{-- <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YBTSPHPCDH');
-</script> --}}
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -97,53 +88,7 @@
     })(window,document,'script','dataLayer','GTM-N65LVW7');</script>
 <!-- End Google Tag Manager -->
 
-     <!-- Your ปลั๊กอินแชท code -->
-     {{--<div class="fb-customerchat" page_id="166748676864456" ></div>
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                appId: '889213402583913',
-                autoLogAppEvents: true,
-                xfbml: true,
-                version: 'v7.0'
-            });
-        };
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) {
-                return;
-            }
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>--}}
-     
-    {{-- <div id="fb-customer-chat" class="fb-customerchat"></div>
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "163432046848877");
-        chatbox.setAttribute("attribution", "biz_inbox");
-        </script>
-
-        <!-- Your SDK code -->
-        <script>
-        window.fbAsyncInit = function() {
-            FB.init({
-            xfbml            : true,
-            version          : 'v18.0'
-            });
-        };
-
-        (function(d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/th_TH/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script> --}}
+    
 <a href="#" class="go-top">  <span><i class="fas fa-angle-up"></i></span> </a>
     
     
@@ -205,14 +150,5 @@
 			});
 		});
 	</script>
-<script>
-$(document).ready(function(){
-  const fixedAlt = "แพ็กเกจทัวร์ต่างประเทศ ญี่ปุ่น เกาหลี ไต้หวัน ราคาถูก | Next Trip Holiday";
-  $("img").each(function(){
-    if (!$(this).attr("alt") || $(this).attr("alt").trim() === "") {
-      $(this).attr("alt", fixedAlt);
-    }
-  });
-});
-</script>
+
 
