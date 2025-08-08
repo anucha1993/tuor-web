@@ -1,4 +1,4 @@
-<section id="footer">
+<section id="footer" style="min-height:220px;">
     <div class="subscribebg">
         <div class="container">
             <div class="row">
@@ -35,13 +35,13 @@
                                 <div class="d-none d-sm-none d-md-none d-lg-block d-xl-block">
                                 <div class="row">
                                     <div class="col-lg-6 text-center">
-                                        <img src="{{asset($contact->qr_code)}}" alt="">
+                                        <img src="{{asset($contact->qr_code)}}" alt="" width="120" height="120" loading="lazy" style="object-fit:cover;">
                                     </div>
                                     <div class="col-lg-6">
                                         @php
                                             $lineUrl = "https://line.me/ti/p/".$contact->line_id;
                                         @endphp
-                                        <a href="{{url($lineUrl)}}" target="_blank"> <img src="{{asset('frontend/images/line_share.svg')}}" alt=""></a> <br><br>
+                                        <a href="{{url($lineUrl)}}" target="_blank"> <img src="{{asset('frontend/images/line_share.svg')}}" alt="" width="32" height="32" loading="lazy" style="object-fit:cover;"></a> <br><br>
                                         ติดตามเราผ่านไลน์ <br>
                                         <a href="{{url($lineUrl)}}" target="_blank"><span class="orgtext">{{$contact->line_id}}</span></a> 
                                     </div>
@@ -157,7 +157,7 @@
                                         @if($k%2 == 0)
                                         <div class="col-lg-12 col-xl-6">
                                             <ul class="footerlist">
-                                                <li><a href="{{url('oversea/'.$co->slug)}}"><img src="{{asset($co->img_icon)}}" class="flagsm" {{-- style="width:27px;height:20px;" --}} alt="">
+                                                <li><a href="{{url('oversea/'.$co->slug)}}"><img src="{{asset($co->img_icon)}}" class="flagsm" width="27" height="20" loading="lazy" style="object-fit:cover;" alt="">
                                                     ทัวร์{{$co->country_name_th}}</a>
                                                 </li>
                                             </ul>
@@ -190,21 +190,21 @@
                         @php
                             $lineUrl = "https://line.me/ti/p/".$contact->line_id;
                         @endphp   
-                        <li><span><img src="{{asset('frontend/images/phonefooter.svg')}}" alt=""></span> {{$contact->phone_front}}</li>
-                        <li><a href="mailto:{{$contact->mail}}"><span><img src="{{asset('frontend/images/mailfooter.svg')}}" alt=""></span>{{$contact->mail}}</a> </li>
-                        <li><a href="{{url($lineUrl)}}" target="_blank"><span><img src="{{asset('frontend/images/line.svg')}}" alt=""></span> {{$contact->line_id}}</a> </li>
+                        <li><span><img src="{{asset('frontend/images/phonefooter.svg')}}" alt="" width="24" height="24" loading="lazy" style="object-fit:cover;"></span> {{$contact->phone_front}}</li>
+                        <li><a href="mailto:{{$contact->mail}}"><span><img src="{{asset('frontend/images/mailfooter.svg')}}" alt="" width="24" height="24" loading="lazy" style="object-fit:cover;"></span>{{$contact->mail}}</a> </li>
+                        <li><a href="{{url($lineUrl)}}" target="_blank"><span><img src="{{asset('frontend/images/line.svg')}}" alt="" width="24" height="24" loading="lazy" style="object-fit:cover;"></span> {{$contact->line_id}}</a> </li>
                     </div>
                     <ul class="socialfooter mt-3">
-                        <li><a href="{{$contact->link_fb}}" target="_blank"><img src="{{asset('frontend/images/facebook.svg')}}" alt=""></a></li>
-                        <li><a href="{{$contact->link_yt}}" target="_blank"><img src="{{asset('frontend/images/youtube.svg')}}" alt=""></a></li>
-                        <li><a href="{{$contact->link_ig}}" target="_blank"><img src="{{asset('frontend/images/instagram.svg')}}" alt=""></a></li>
-                        <li><a href="{{$contact->link_tiktok}}" target="_blank"><img src="{{asset('frontend/images/tiktok_ic.svg')}}" alt=""></a></li>
+                        <li><a href="{{$contact->link_fb}}" target="_blank"><img src="{{asset('frontend/images/facebook.svg')}}" alt="" width="32" height="32" loading="lazy" style="object-fit:cover;"></a></li>
+                        <li><a href="{{$contact->link_yt}}" target="_blank"><img src="{{asset('frontend/images/youtube.svg')}}" alt="" width="32" height="32" loading="lazy" style="object-fit:cover;"></a></li>
+                        <li><a href="{{$contact->link_ig}}" target="_blank"><img src="{{asset('frontend/images/instagram.svg')}}" alt="" width="32" height="32" loading="lazy" style="object-fit:cover;"></a></li>
+                        <li><a href="{{$contact->link_tiktok}}" target="_blank"><img src="{{asset('frontend/images/tiktok_ic.svg')}}" alt="" width="32" height="32" loading="lazy" style="object-fit:cover;"></a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="imgfooter mt-5">
-            @if($footer->status == 'on')<img src="{{asset($footer->img_footer)}}" class="img-fluid" alt="">@endif
+            @if($footer->status == 'on')<img src="{{asset($footer->img_footer)}}" class="img-fluid" alt="" width="1920" height="180" loading="lazy" style="object-fit:cover;">@endif
         </div>
     </div>
     <div class="footercopyright">

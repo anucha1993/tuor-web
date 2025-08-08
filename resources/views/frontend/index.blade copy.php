@@ -28,94 +28,9 @@
                     </div>
                 </div>
             @endforeach
-        </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="searchtripfull">
-                        <h2>ไปเที่ยวที่ไหนดี?</h2>
-                        <form action="{{url('search-tour')}}" method="POST" enctype="multipart/form-data"  id="searchForm">
-                            @csrf
-                            <div class="input-group formcountry mb-3">
-                                <span class="input-group-text" id="basic-addon1"><i class="fi fi-rr-search"></i></span>
-                                <input type="text" class="form-control" placeholder="ประเทศ, เมือง, สถานที่ท่องเที่ยว"
-                                    aria-label="country" aria-describedby="basic-addon1" name="search_data" id="search_data" onkeyup="SearchData()" onfocusout="HideSearch()"  onfocus="$('#search_famus').show();$('#livesearch').show()">
-                               
-                            </div>
-                                <div id="livesearch" ></div>
-                                <div id="search_famus" class="searchexpbox"></div>
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="row">
-                                            <div class="col-12 col-lg-12">
-                                                <div class="input-group mb-3">
-                                                    <span class="input-group-text" id="basic-addon1"><i class="bi bi-calendar"></i></span>
-                                                    <input type="text" class="form-control" name="daterange" id="hide_date_select" value="{{date('m/d/Y')}} - {{date('m/d/Y',strtotime('+1 day'))}}" />
-                                                    <input type="hidden" name="start_date" id="start_date" {{-- value="{{date('Y-m-d')}}" --}} />
-                                                    <input type="hidden" name="end_date" id="end_date" {{-- value="{{date('Y-m-d',strtotime('+1 day'))}}" --}} />
-                                                    <div class="form-control"  style="height:68px;" id="show_date_calen" onclick="show_datepicker()" >
-                                                        {{-- <input type="text" id="show_date_select" /><br>
-                                                        <input type="text" id="show_day_select" /> --}}
-                                                    </div>
-                                                    <div class="form-control" style="height:68px;" id="show_end_calen" onclick="show_datepicker()" ></div>
-                                                </div>
-                                                
-                                            </div>
-                                            {{-- <div class="col-6 col-lg-6">
-                                                <div class="input-group mb-3">
-                                                    <input class="form-control" type="date" name="end_date" />
-                                                </div>
-                                            </div> --}}
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <select class="form-select" name="price" aria-label="Default select example">
-                                                    <option value="" selected>ช่วงราคา</option>
-                                                    <option value="1">ต่ำกว่า10,000</option>
-                                                    <option value="2">10,001-20,000</option>
-                                                    <option value="3">20,001-30,000</option>
-                                                    <option value="4">30,001-50,000</option>
-                                                    <option value="5">50,001-80,000</option>
-                                                    <option value="5">80,001 ขึ้นไป</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" name="code_tour" placeholder="รหัสทัวร์">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                {{-- <div class="row">
-                                        <div class="col-6 col-lg-3">
-                                            <input class="form-control" type="date" name="start_date" />
-                                        </div>
-                                        <div class="col-6 col-lg-3">
-                                            <input class="form-control" type="date" name="end_date" />
-                                        </div>
-                                        <div class="col-6 col-lg-6">
-                                            <select class="form-control"  aria-label="ช่วงราคา" name="price">
-                                                <option value="">ช่วงราคา</option>
-                                                <option value="1">ต่ำกว่า 10,000</option>
-                                                <option value="2">10,001-20,000</option>
-                                                <option value="3">20,001-30,000</option>
-                                                <option value="4">30,001-50,000</option>
-                                                <option value="5">50,001-80,000</option>
-                                                <option value="6">80,001 ขึ้นไป</option>
-                                            </select>
-                                        </div>
-                                        <div class="col-6 col-lg-6">
-                                            <input type="text" class="form-control" placeholder="รหัสทัวร์" name="tour_code">
-                                        </div>
-                                </div> --}}
-                            <button type="submit" class="btn btn-submit-search ">ค้นหาทัวร์</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
+          </div>
+
+        
        
         <div class="container">
             <section class="promotionhome">
