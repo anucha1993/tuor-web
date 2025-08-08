@@ -1408,8 +1408,7 @@
                             @foreach ($footer_list as $f)
                                 <div class="col-6 col-lg-6 mt-3 mb-3">
                                     <div class="ic">
-                                        <img src="{{ asset($f->img) }}" width="397" height="561"
-                                            loading="lazy" decoding="async" style="aspect-ratio: 397 / 561;"
+                                        <img src="{{ asset($f->img) }}"
                                             alt="ทัวร์เที่ยวต่างประเทศ">
                                     </div>
                                     <h4>{{ $f->title }}</h4>
