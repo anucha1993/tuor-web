@@ -7,6 +7,20 @@
     <title>Next Trip Holiday - จองทัวร์ออนไลน์ ทัวร์ในประเทศ ต่างประเทศ</title>
     <meta name="description" content="จองทัวร์ออนไลน์ ราคาดี บริการดี ทัวร์ในประเทศและต่างประเทศ ญี่ปุ่น เกาหลี ยุโรป อเมริกา">
     
+    <!-- Open Graph meta tags for social sharing -->
+    <meta property="og:title" content="Next Trip Holiday - จองทัวร์ออนไลน์">
+    <meta property="og:description" content="จองทัวร์ออนไลน์ ราคาดี บริการดี ทัวร์ในประเทศและต่างประเทศ">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="/images/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Accessibility improvements -->
+    <meta name="theme-color" content="#667eea">
+    <meta name="color-scheme" content="light">
+    
+    <!-- Security headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net;">
+    
     <!-- Preconnect for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,6 +132,26 @@
             color: white;
         }
         
+        /* Focus indicators for better accessibility */
+        button:focus-visible,
+        select:focus-visible,
+        input:focus-visible {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .hero-text,
+            .hero-subtitle {
+                text-shadow: 3px 3px 6px rgba(0,0,0,0.8);
+            }
+            
+            .btn-primary-custom {
+                border: 2px solid white;
+            }
+        }
+        
         /* Optimize animations for better performance */
         .shape {
             transform: translateZ(0);
@@ -131,6 +165,27 @@
                 animation: none;
                 transition: none;
             }
+            
+            .floating-shapes {
+                display: none;
+            }
+        }
+        
+        /* Skip link for screen readers */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #667eea;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            border-radius: 4px;
+            z-index: 9999;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
         }
     </style>
     
@@ -381,9 +436,12 @@
     </style>
 </head>
 <body>
+    <!-- Skip link for screen readers -->
+    <a href="#main-content" class="skip-link">ข้ามไปยังเนื้อหาหลัก</a>
+    
     <!-- Hero Section -->
-    <section class="hero-gradient">
-        <div class="floating-shapes">
+    <section class="hero-gradient" role="banner">
+        <div class="floating-shapes" aria-hidden="true">
             <div class="shape"></div>
             <div class="shape"></div>
             <div class="shape"></div>
@@ -392,20 +450,24 @@
         <div class="container hero-content">
             <div class="row align-items-center min-vh-100">
                 <div class="col-lg-6">
-                    <h1 class="hero-text">เริ่มต้นการเดินทาง<br>ที่ไม่มีวันลืม</h1>
-                    <p class="hero-subtitle">ค้นพบโลกใบใหม่กับแพ็กเกจทัวร์ที่ออกแบบมาเพื่อคุณโดยเฉพาะ<br>บริการระดับพรีเมียม ราคาที่คุ้มค่า</p>
-                    <div class="d-flex gap-3 flex-wrap">
-                        <button class="btn btn-primary-custom btn-lg">
-                            <i class="fas fa-search me-2"></i>เริ่มค้นหาทัวร์
+                    <h1 class="hero-text" role="banner" tabindex="0">เริ่มต้นการเดินทาง<br>ที่ไม่มีวันลืม</h1>
+                    <p class="hero-subtitle" role="complementary">ค้นพบโลกใบใหม่กับแพ็กเกจทัวร์ที่ออกแบบมาเพื่อคุณโดยเฉพาะ<br>บริการระดับพรีเมียม ราคาที่คุ้มค่า</p>
+                    <div class="d-flex gap-3 flex-wrap" role="group" aria-label="การดำเนินการหลัก">
+                        <button class="btn btn-primary-custom btn-lg" 
+                                aria-label="เริ่มค้นหาทัวร์ที่ต้องการ"
+                                tabindex="0">
+                            <i class="fas fa-search me-2" aria-hidden="true"></i>เริ่มค้นหาทัวร์
                         </button>
-                        <button class="btn btn-outline-light btn-lg">
-                            <i class="fas fa-play me-2"></i>ดูวิดีโอ
+                        <button class="btn btn-outline-light btn-lg"
+                                aria-label="ดูวิดีโอแนะนำบริการ"
+                                tabindex="0">
+                            <i class="fas fa-play me-2" aria-hidden="true"></i>ดูวิดีโอ
                         </button>
                     </div>
                 </div>
                 <div class="col-lg-6 text-center">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 400'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23667eea'/%3E%3Cstop offset='100%25' style='stop-color:%23764ba2'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='400' fill='url(%23bg)' opacity='0.1'/%3E%3Ctext x='250' y='200' text-anchor='middle' fill='white' font-size='24' font-family='Arial'%3ETravel Illustration%3C/text%3E%3C/svg%3E" 
-                         alt="Travel Hero" 
+                         alt="ภาพประกอบการเดินทางและท่องเที่ยว" 
                          class="img-fluid" 
                          style="max-height: 400px; border-radius: 20px;"
                          width="500" 
@@ -416,14 +478,18 @@
         </div>
     </section>
 
+    <main id="main-content" role="main"
+          aria-label="เนื้อหาหลักของเว็บไซต์"
+          tabindex="-1">
+
     <!-- Search Section -->
     <div class="container">
-        <div class="search-container">
+        <div class="search-container" role="search" aria-label="ค้นหาทัวร์">
             <h3 class="text-center mb-4">ค้นหาทัวร์ในฝันของคุณ</h3>
-            <form class="row g-3">
+            <form class="row g-3" role="form" aria-label="แบบฟอร์มค้นหาทัวร์">
                 <div class="col-md-3">
-                    <label class="form-label fw-semibold">จุดหมายปลายทาง</label>
-                    <select class="form-select form-select-lg">
+                    <label class="form-label fw-semibold" for="destination">จุดหมายปลายทาง</label>
+                    <select class="form-select form-select-lg" id="destination" aria-label="เลือกจุดหมายปลายทาง">
                         <option value="">เลือกประเทศ/เมือง</option>
                         <option value="japan">🇯🇵 ญี่ปุ่น</option>
                         <option value="korea">🇰🇷 เกาหลีใต้</option>
@@ -436,12 +502,12 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label fw-semibold">วันที่ออกเดินทาง</label>
-                    <input type="date" class="form-control form-control-lg" min="2025-08-08">
+                    <label class="form-label fw-semibold" for="departure-date">วันที่ออกเดินทาง</label>
+                    <input type="date" class="form-control form-control-lg" id="departure-date" min="2025-08-08" aria-label="เลือกวันที่ออกเดินทาง">
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label fw-semibold">จำนวนวัน</label>
-                    <select class="form-select form-select-lg">
+                    <label class="form-label fw-semibold" for="duration">จำนวนวัน</label>
+                    <select class="form-select form-select-lg" id="duration" aria-label="เลือกจำนวนวันเดินทาง">
                         <option value="">เลือก</option>
                         <option value="1-3">1-3 วัน</option>
                         <option value="4-6">4-6 วัน</option>
@@ -450,8 +516,8 @@
                     </select>
                 </div>
                 <div class="col-md-2">
-                    <label class="form-label fw-semibold">งบประมาณ</label>
-                    <select class="form-select form-select-lg">
+                    <label class="form-label fw-semibold" for="budget">งบประมาณ</label>
+                    <select class="form-select form-select-lg" id="budget" aria-label="เลือกงบประมาณ">
                         <option value="">เลือกงบ</option>
                         <option value="0-15000">ต่ำกว่า 15,000</option>
                         <option value="15000-30000">15,000-30,000</option>
@@ -462,8 +528,8 @@
                 </div>
                 <div class="col-md-3">
                     <label class="form-label fw-semibold">&nbsp;</label>
-                    <button type="submit" class="btn btn-primary-custom btn-lg w-100">
-                        <i class="fas fa-search me-2"></i>ค้นหาทัวร์
+                    <button type="submit" class="btn btn-primary-custom btn-lg w-100" aria-label="ค้นหาทัวร์ตามเงื่อนไขที่เลือก">
+                        <i class="fas fa-search me-2" aria-hidden="true"></i>ค้นหาทัวร์
                     </button>
                 </div>
             </form>
@@ -471,46 +537,46 @@
     </div>
 
     <!-- Featured Tours -->
-    <section class="py-5 my-5">
+    <section class="py-5 my-5" role="main" aria-label="ทัวร์ยอดนิยม">
         <div class="container">
             <div class="text-center mb-5">
                 <h2 class="section-title">ทัวร์ยอดนิยม</h2>
                 <p class="lead text-muted">แพ็กเกจทัวร์ที่ได้รับความนิยมสูงสุดจากลูกค้า</p>
             </div>
             
-            <div class="row g-4">
+            <div class="row g-4" role="list" aria-label="รายการทัวร์ยอดนิยม">
                 <!-- Tour Card 1 - Japan -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="card tour-card">
+                <div class="col-lg-4 col-md-6" role="listitem">
+                    <article class="card tour-card" aria-labelledby="tour-japan-title">
                         <div class="position-relative overflow-hidden">
                             <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Cdefs%3E%3ClinearGradient id='japan' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff6b6b'/%3E%3Cstop offset='100%25' style='stop-color:%23ee5a24'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='250' fill='url(%23japan)'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='white' font-size='18' font-family='Arial'%3E🇯🇵 ญี่ปุ่น%3C/text%3E%3C/svg%3E" 
                                  class="card-img-top tour-image" 
-                                 alt="ทัวร์ญี่ปุ่น"
+                                 alt="ภาพประกอบทัวร์ญี่ปุ่น โตเกียว โอซาก้า"
                                  width="400" 
                                  height="250"
                                  loading="lazy">
-                            <div class="price-badge">฿35,900</div>
+                            <div class="price-badge" aria-label="ราคา 35,900 บาท">฿35,900</div>
                         </div>
                         <div class="card-body">
-                            <h5 class="card-title fw-bold">ทัวร์ญี่ปุ่น โตเกียว โอซาก้า</h5>
+                            <h5 class="card-title fw-bold" id="tour-japan-title">ทัวร์ญี่ปุ่น โตเกียว โอซาก้า</h5>
                             <p class="card-text text-muted">6 วัน 4 คืน | ชมซากุระ ช้อปปิ้ง ชิมอาหารญี่ปุ่นแท้ ขึ้นภูเขาไฟฟูจิ</p>
                             <div class="d-flex justify-content-between align-items-center mb-3">
                                 <div>
-                                    <small class="text-warning">★★★★★</small>
+                                    <span class="text-warning" aria-label="คะแนนรีวิว 5 ดาว จากคะแนนเต็ม 5">★★★★★</span>
                                     <small class="text-muted">(4.8)</small>
                                 </div>
                                 <small class="text-muted">เหลือ 5 ที่นั่ง</small>
                             </div>
-                            <div class="d-flex gap-2">
+                            <div class="d-flex gap-2" role="list" aria-label="คุณสมบัติทัวร์">
                                 <span class="badge bg-light text-dark">วีซ่าฟรี</span>
                                 <span class="badge bg-light text-dark">ไกด์ไทย</span>
                                 <span class="badge bg-light text-dark">ประกันครอบคลุม</span>
                             </div>
                         </div>
                         <div class="card-footer bg-transparent">
-                            <button class="btn btn-book w-100">ดูรายละเอียด</button>
+                            <button class="btn btn-book w-100" aria-label="ดูรายละเอียดทัวร์ญี่ปุ่น">ดูรายละเอียด</button>
                         </div>
-                    </div>
+                    </article>
                 </div>
 
                 <!-- Tour Card 2 - Korea -->
@@ -991,6 +1057,31 @@
             setupLazyLoading();
         });
         
+        // Enhanced keyboard navigation for accessibility
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Tab') {
+                document.body.classList.add('keyboard-nav');
+            }
+            // Skip to main content with Enter key on skip link
+            if (e.key === 'Enter' && e.target.classList.contains('skip-link')) {
+                e.preventDefault();
+                document.getElementById('main-content').focus();
+            }
+        });
+        
+        document.addEventListener('mousedown', function() {
+            document.body.classList.remove('keyboard-nav');
+        });
+        
+        // Announce dynamic content changes to screen readers
+        function announceToScreenReader(message) {
+            const announcer = document.getElementById('screen-reader-announcer');
+            if (announcer) {
+                announcer.textContent = message;
+                setTimeout(() => announcer.textContent = '', 1000);
+            }
+        }
+        
         // Service Worker for caching (optional enhancement)
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', function() {
@@ -1001,9 +1092,55 @@
         }
     </script>
     
+    <!-- Screen reader announcer -->
+    <div id="screen-reader-announcer" 
+         aria-live="polite" 
+         aria-atomic="true" 
+         class="sr-only"></div>
+    
     <!-- Critical Resource Hints for next page loads -->
     <link rel="prefetch" href="/tour-detail">
     <link rel="prefetch" href="/search-results">
+    
+    <!-- Additional CSS for accessibility -->
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        .keyboard-nav *:focus {
+            outline: 3px solid #667eea;
+            outline-offset: 2px;
+        }
+        
+        /* High contrast mode support */
+        @media (prefers-contrast: high) {
+            .tour-card {
+                border: 2px solid #000;
+            }
+            
+            .btn-primary-custom {
+                border: 2px solid #fff;
+            }
+        }
+        
+        /* Reduced motion preferences */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
     
 </body>
 </html>
